@@ -11,8 +11,7 @@ class PointEqTest {
         int x2 = 3;
         int y2 = 5;
         boolean result = PointEq.eq(x1, y1, x2, y2);
-        boolean expected = false;
-        assertThat(result).isEqualTo(expected);
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -22,7 +21,6 @@ class PointEqTest {
         int x2 = 7;
         int y2 = 5;
         boolean result = PointEq.eq(x1, y1, x2, y2);
-        boolean expected = true;
-        assertThat(result).isEqualTo(expected);
+        assertThat(result).isTrue();
     }
 }
