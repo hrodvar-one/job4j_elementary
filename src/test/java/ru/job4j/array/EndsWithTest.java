@@ -19,4 +19,20 @@ class EndsWithTest {
         boolean result = EndsWith.endsWith(word, post);
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void whenNotEndWithPrefixThenFalseTwo() {
+        char[] word = {'H', 'e', 'l', 'l', 'o'};
+        char[] post = {'s', 'r'};
+        boolean result = EndsWith.endsWith(word, post);
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void whenNotEndWithPrefixThenFalseThree() {
+        char[] word = {'H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd'};
+        char[] post = {'s', 'r', 'q'};
+        boolean result = EndsWith.endsWith(word, post);
+        assertThat(result).isFalse();
+    }
 }
