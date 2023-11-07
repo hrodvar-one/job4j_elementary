@@ -127,4 +127,17 @@ class MatrixCheckTest {
         boolean result = MatrixCheck.isWin(input);
         assertThat(result).isFalse();
     }
+
+    @Test
+    public void whenDataEmptyThenFalse() {
+        char[][] input = {
+                {' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' '},
+                {'X', ' ', ' ', ' ', ' '},
+                {' ', ' ', ' ', ' ', ' '},
+        };
+        boolean result = MatrixCheck.isWin(input);
+        assertThat(result).isFalse();
+    }
 }
