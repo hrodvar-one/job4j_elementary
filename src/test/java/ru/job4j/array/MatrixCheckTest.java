@@ -132,12 +132,13 @@ class MatrixCheckTest {
     public void whenDataEmptyThenFalse() {
         char[][] input = {
                 {' ', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', ' ', ' '},
                 {'X', ' ', ' ', ' ', ' '},
-                {' ', ' ', ' ', ' ', ' '},
+                {'X', ' ', ' ', ' ', ' '},
+                {'X', ' ', ' ', ' ', ' '},
+                {'X', ' ', ' ', ' ', ' '},
         };
-        boolean result = MatrixCheck.isWin(input);
+        int column = 0;
+        boolean result = MatrixCheck.monoVertical(input, column);
         assertThat(result).isFalse();
     }
 }
