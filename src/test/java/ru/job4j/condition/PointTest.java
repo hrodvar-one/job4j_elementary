@@ -55,4 +55,34 @@ class PointTest {
         double out = a.distance(b);
         assertThat(out).isEqualTo(expected, withPrecision(0.01));
     }
+
+    @Test
+    void when417to625then3dot00() {
+        double expected = 3.00;
+        int x1 = 4;
+        int y1 = 1;
+        int z1 = 7;
+        int x2 = 6;
+        int y2 = 2;
+        int z2 = 5;
+        Point a = new Point(x1, y1, z1);
+        Point b = new Point(x2, y2, z2);
+        double out = a.distance3d(b);
+        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    }
+
+    @Test
+    void when263to714then7dot14() {
+        double expected = 7.14;
+        int x1 = 2;
+        int y1 = 6;
+        int z1 = 3;
+        int x2 = 7;
+        int y2 = 1;
+        int z2 = 4;
+        Point a = new Point(x1, y1, z1);
+        Point b = new Point(x2, y2, z2);
+        double out = a.distance3d(b);
+        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    }
 }
