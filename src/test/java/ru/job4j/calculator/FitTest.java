@@ -3,53 +3,37 @@ package ru.job4j.calculator;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
-class FitTest {
+public class FitTest {
 
     @Test
-    void whenMan180Then92() {
-        short in = 180;
-        double expected = 92;
-        double out = Fit.calculateIdealWeight(in, true);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    public void whenManHeight187ThenWeight100_05() {
+        int height = 187;
+        double expected = 100.05;
+        double result = Fit.manWeight(height);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
-    void whenWoman170Then69() {
-        short in = 170;
-        double expected = 69;
-        double out = Fit.calculateIdealWeight(in, false);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    public void whenWomanHeight170ThenWeight69_0() {
+        int height = 170;
+        double expected = 69.0;
+        double result = Fit.womanWeight(height);
+        assertThat(result).isEqualTo(expected);
     }
 
     @Test
-    void whenHeightIsZeroThenMaleWeightShouldBeNegative() {
-        short in = 0;
-        double expected = -115.0;
-        double out = Fit.calculateIdealWeight(in, true);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    public void whenManHeightNegativeThenException() {
+        int height = -170;
+        assertThatThrownBy(() -> Fit.manWeight(height))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Height must be positive");
     }
 
     @Test
-    void whenHeightIsZeroThenFemaleWeightShouldBeNegative() {
-        short in = 0;
-        double expected = -126.5;
-        double out = Fit.calculateIdealWeight(in, false);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
-    }
-
-    @Test
-    void whenManIsExtremelyTallThenWeightIsHigh() {
-        short in = 300;
-        double expected = 230.0;
-        double out = Fit.calculateIdealWeight(in, true);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
-    }
-
-    @Test
-    void whenWomanIsExtremelyTallThenWeightIsHigh() {
-        short in = 300;
-        double expected = 218.5;
-        double out = Fit.calculateIdealWeight(in, false);
-        assertThat(out).isEqualTo(expected, withPrecision(0.01));
+    public void whenWomanHeightNegativeThenException() {
+        int height = -170;
+        assertThatThrownBy(() -> Fit.womanWeight(height))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Height must be positive");
     }
 }
